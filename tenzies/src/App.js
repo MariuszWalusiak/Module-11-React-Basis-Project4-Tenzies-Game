@@ -1,9 +1,22 @@
-import logo from './logo.svg';
+import Die from "./components/Die";
 
 
 function App() {
   return (
-      <main></main>
+      <main>
+        <div className="grid-container">
+          <Die value={Math.floor(Math.random() * 6) + 1} />
+          <Die value={Math.floor(Math.random() * 6) + 1} />
+          <Die value={Math.floor(Math.random() * 6) + 1}/>
+          <Die value={Math.floor(Math.random() * 6) + 1}/>
+          <Die value={Math.floor(Math.random() * 6) + 1}/>
+          <Die value={Math.floor(Math.random() * 6) + 1}/>
+          <Die value={Math.floor(Math.random() * 6) + 1}/>
+          <Die value={Math.floor(Math.random() * 6) + 1} />
+          <Die value={Math.floor(Math.random() * 6) + 1}/>
+          <Die value={Math.floor(Math.random() * 6) + 1}/>
+        </div>
+      </main>
   );
 }
 
