@@ -12,16 +12,21 @@ function App() {
     }
     return diceArray
   } 
-  
+
   const [dice, setDice] = useState(allNewDice())
   
   const diceElements = dice.map(die => <Die value={die} />)
+
+  const handleClick = () =>{
+    setDice(allNewDice())
+  }
   
   return (
       <main>
         <div className="grid-container">
           {diceElements}
         </div>
+        <button className="roll-dice" onClick={handleClick}>Roll</button>
       </main>
   );
 }
