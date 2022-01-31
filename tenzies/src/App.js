@@ -24,7 +24,7 @@ function App() {
   console.log(dice)
   
   
-  const diceElements = dice.map(die => <Die value={die.value} key={die.id}/>)
+  const diceElements = dice.map(die => <Die value={die.value} key={die.id} isHeld={die.isHeld}/>)
 
   const handleClick = () =>{
     setDice(allNewDice())
