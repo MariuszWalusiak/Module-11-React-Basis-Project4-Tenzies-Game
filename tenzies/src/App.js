@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Die from "./components/Die";
 import { nanoid } from "nanoid";
 
@@ -16,12 +16,17 @@ function App() {
   };
 
   const [dice, setDice] = useState(allNewDice());
+  const [tenzies,setTenzies] = useState(false)
+
+  useEffect(() => {
+    console.log("Dice state changed")
+  },[dice])
 
   const handleClickRollDice = () => {
     setDice((prevArray) =>
       prevArray.map((die) => {
         return die.isHeld === true
-          ? die
+        ? die
           : {
               value: Math.ceil(Math.random() * 6),
               isHeld: false,
@@ -47,6 +52,7 @@ function App() {
       holdDice={() => holdDice(die.id)}
     />
   ));
+
 
   return (
     <main>
