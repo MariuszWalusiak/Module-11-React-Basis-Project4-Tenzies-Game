@@ -21,21 +21,25 @@ function App() {
   } 
   
   const [dice, setDice] = useState(allNewDice())
-  console.log(dice)
   
-  
-  const diceElements = dice.map(die => <Die value={die.value} key={die.id} isHeld={die.isHeld}/>)
-
-  const handleClick = () =>{
+  const handleClickRollDice = () =>{
     setDice(allNewDice())
   }
+
+  const holdDice = (id) => {
+    console.log(id)
+  }
+  
+  
+  const diceElements = dice.map(die => <Die value={die.value} key={die.id} isHeld={die.isHeld} holdDice={() => holdDice(die.id)}/>)
+
   
   return (
       <main>
         <div className="grid-container">
           {diceElements}
         </div>
-        <button className="roll-dice" onClick={handleClick}>Roll</button>
+        <button className="roll-dice" onClick={handleClickRollDice}>Roll</button>
       </main>
   );
 }
